@@ -16,6 +16,11 @@ class ListOfShoppingList extends StatefulWidget {
 class ListOfShoppingListState extends State<ListOfShoppingList> {
 
   int activeIndex;
+  @override
+  void setState(VoidCallback fn) {
+    super.setState(fn);
+  }
+
 
   void _setActivePodcast(int index) {
     setState(() {
@@ -83,6 +88,7 @@ class MyStatelessWidget extends StatelessWidget {
             ListTile(
               leading: Icon(
                 Icons.shopping_basket,
+                key: Key("iconShoppingBasket"),
                 color: shopping.isBuy ? Colors.green : null,
               ),
               title: Text(

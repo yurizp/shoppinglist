@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping_clist/database/database.dart';
 import 'package:shopping_clist/model/shopping.dart';
+import 'package:shopping_clist/screen/list_of_shopping_list.dart';
 
 class RegisterListOfShoppingList extends StatelessWidget {
   final TextEditingController _textEditingControllerDescription =
@@ -20,6 +21,7 @@ class RegisterListOfShoppingList extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8),
             child: TextField(
+              key: Key("itemName"),
               controller: _textEditingControllerTitle,
               keyboardType: TextInputType.text,
               maxLength: 30,
@@ -32,6 +34,7 @@ class RegisterListOfShoppingList extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8),
             child: TextField(
+              key: Key("descriptionItem"),
               controller: _textEditingControllerDescription,
               keyboardType: TextInputType.text,
               maxLength: 60,
@@ -55,8 +58,10 @@ class RegisterListOfShoppingList extends StatelessWidget {
                     isDeleted: false,
                     isBuy: false));
               }
-              Navigator.pop(context);
-            },
+
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+                return ListOfShoppingList();
+              }));            },
           )
         ],
       ),
